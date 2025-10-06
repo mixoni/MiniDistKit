@@ -188,11 +188,3 @@ dotnet ef database update -p src/ReliableFlow.Api
 
 ---
 
-## 🧑‍💻 Author
-Miljan Janković — Software Architect / .NET & Node.js Engineer  
-([LinkedIn Profile](https://www.linkedin.com/in/miljanjankovic/))
-
----
-
-## 📜 License
-MIT — feel free to use, modify, and learn from this demo.
