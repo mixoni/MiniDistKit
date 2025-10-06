@@ -63,7 +63,7 @@ cd src/ReliableFlow.Api
 dotnet run
 ```
 
-The API will start on the port shown in the console (typically `http://localhost:5080`).
+The API will start on the port shown in the console (typically `http://localhost:5000`).
 
 ---
 
@@ -74,7 +74,7 @@ Open `ReliableFlow.http` and click **Send Request** above each block.
 
 ### ✅ Happy Path – Payment OK → Saga Activates
 ```
-POST http://localhost:5080/claims
+POST http://localhost:5000/claims
 Content-Type: application/json
 
 {
@@ -90,7 +90,7 @@ Log output:
 
 ### ❌ Failure Path – Payment FAIL → Saga Compensates
 ```
-POST http://localhost:5080/claims
+POST http://localhost:5000/claims
 Content-Type: application/json
 
 {
@@ -106,7 +106,7 @@ Log output:
 ### 🧩 API-Level Idempotency
 The first request succeeds; the second returns `409 Conflict`:
 ```
-POST http://localhost:5080/claims
+POST http://localhost:5000/claims
 Content-Type: application/json
 Idempotency-Key: 5b0d4c
 
