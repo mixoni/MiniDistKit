@@ -49,23 +49,6 @@
              Activate Claim               Revert Claim
 ```
 
----
-
-## 🧩 Project Structure
-
-```
-src/
-  ReliableFlow.Api/
-    Program.cs
-    AppDbContext.cs
-    Entities.cs
-    Contracts.cs
-    MessageBus.cs
-    OutboxDispatcher.cs
-    Handlers.cs
-    SagaOrchestrator.cs
-    Idempotency.cs
-    ReliableFlow.Api.csproj
 
 ReliableFlow.http   ← REST Client test file (VS Code / Rider)
 README.md
