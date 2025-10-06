@@ -1,0 +1,61 @@
+### ✅ Happy path – Claim + Payment OK + Saga activation
+POST http://localhost:5000/claims
+Content-Type: application/json
+
+{
+  "policyNumber": "P-001",
+  "amount": 123.45
+}
+
+###
+
+### ❌ Payment fail (Amount >= 1000 triggers compensation)
+POST http://localhost:5000/claims
+Content-Type: application/json
+
+{
+  "policyNumber": "P-002",
+  "amount": 1500
+}
+
+###
+
+### 🔁 Idempotent POST – first accepted, second 409 Conflict
+POST http://localhost:5000/claims
+Content-Type: application/json
+Idempotency-Key: 5b0d4c
+
+{
+  "policyNumber": "P-003",
+  "amount": 50
+}
+
+###
+POST http://localhost:5000/claims
+Content-Type: application/json
+Idempotency-Key: 5b0d4c
+
+{
+  "policyNumber": "P-003",
+  "amount": 50
+}
+
+###
+
+### 🧾 Debug – view all tables
+GET http://localhost:5000/debug/claims
+
+###
+GET http://localhost:5000/debug/outbox
+
+###
+GET http://localhost:5000/debug/processed
+
+###
+GET http://localhost:5000/debug/sagas
+
+###
+
+### 🔁 Replay messages (test consumer idempotency)
+# replace {id} with the actual ID from debug/claims
+POST http://localhost:5000/debug/replay/{id}
