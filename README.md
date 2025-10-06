@@ -50,7 +50,7 @@
 ```
 
 
-ReliableFlow.http   ← REST Client test file (VS Code / Rider)
+MiniDist.http   ← REST Client test file (VS Code / Rider)
 README.md
 ```
 
@@ -59,7 +59,7 @@ README.md
 ## 🚀 Getting Started
 
 ```bash
-cd src/ReliableFlow.Api
+cd src/MiniDist.Api
 dotnet run
 ```
 
@@ -70,7 +70,7 @@ The API will start on the port shown in the console (typically `http://localhost
 ## 🧪 Testing the Flow
 
 Use **VS Code REST Client** or **curl**.  
-Open `ReliableFlow.http` and click **Send Request** above each block.
+Open `MiniDist.http` and click **Send Request** above each block.
 
 ### ✅ Happy Path – Payment OK → Saga Activates
 ```
@@ -179,11 +179,11 @@ dotnet ef database update
 ```bash
 # Build & Run
 dotnet build
-dotnet run --project src/ReliableFlow.Api/ReliableFlow.Api.csproj
+dotnet run --project src/MiniDist.Api/MiniDist.Api.csproj
 
 # (If EF provider is enabled)
-dotnet ef migrations add Init -p src/ReliableFlow.Api
-dotnet ef database update -p src/ReliableFlow.Api
+dotnet ef migrations add Init -p src/MiniDist.Api
+dotnet ef database update -p src/MiniDist.Api
 ```
 
 ---
